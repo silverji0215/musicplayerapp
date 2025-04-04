@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js" 
+  integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" 
+  crossorigin="anonymous"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+    
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+
+  /*배경, 건물*/
+    .main_background .back{
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+      z-index: -1;
+    }
+
+/*나무, 벤치, 자동차, 토비냥이*/
+    .main_etc .tree1{
+            position: absolute;
+            width: 8%;
+            left: 18%;
+            bottom: 29%;
+            z-index: 4;
+        }
+
+        .main_etc .tree2{
+            position: absolute;
+            width: 8%;
+            left: 29%;
+            bottom: 29%;
+            z-index: 4;
+        }
+
+        .main_etc .tree3{
+            position: absolute;
+            width: 8%;
+            left: 72%;
+            bottom: 29%;
+            z-index: 4;
+        }
+
+        .main_etc .bench{
+            position: absolute;
+            width: 8%;
+            left: 80%;
+            bottom: 28%;
+            z-index: 1;
+        }
+
+        .main_etc .car_r{
+            position: absolute;
+            width: 16vw;
+            height: auto;
+            left: 34%;
+            bottom: 13%;
+            z-index: 1;
+        }
+
+        .main_etc .car_g{
+            position: absolute;
+            width: 16vw;
+            height: auto;
+            left: 76%;
+            bottom: 1%;
+            z-index: 1;
+        }
+        .main_etc .cat{
+            position: absolute;
+            width: 3%;
+            left: 18%;
+            bottom: 77%;
+            z-index: 1;
+        }
+
+  
+    /*캐릭터*/
+    .user{
+        position: absolute;
+        width: 3.5vw;
+        height: auto;
+
+        left: 52%;
+        bottom: 1%;
+        z-index: 3;
+    }
+
+    .freshman{
+      position: absolute;
+      width: 3.5vw;
+        height: auto;
+
+        left: 64%;
+        bottom: 30%;
+        z-index: 2;
+    }
+  
+
+    
+    .couple{
+      position: absolute;
+      width: 6vw;
+        height: auto;
+     
+
+        left: 50%;
+        bottom: 44%;
+    }
+ 
+    .homeless{
+        position: absolute;
+        width: 3.5vw;
+        height: auto;
+     
+
+        left: 82.5%;
+        bottom: 30%;
+        z-index: 2;
+    }
+    
+    
+    .nerd{
+      position: absolute;
+      width: 3.5vw;
+        height: auto;
+     
+
+        left: 92%;
+        bottom: 37%;
+        z-index: 2;
+    }
+   
+    .rocker{
+        position: absolute;
+        width: 3.5vw;
+        height: auto;   
+
+        left: 11%;
+        bottom: 52%;
+        z-index: 2;
+    }
+  
+    
+    .prof{
+        position: absolute;
+        width: 3.5vw;
+        height: auto;
+     
+        left: 40.8%;
+        bottom: 37%;
+        z-index: 2;
+      
+    }
+
+
+    
+    /*hover*/
+    .fresh_bubble {
+    display: none;
+    position: absolute;
+    width: 8vw;
+    left: 61.7%;
+    bottom: 43%;
+    }
+    .fresh_hov:hover .fresh_bubble {
+    display: block;
+    }
+
+    .couple_bubble {
+    display: none;
+    position: absolute;
+    width: 8vw;
+    left: 49%;
+    bottom: 59.5%;
+    }
+    .couple_hov:hover .couple_bubble {
+    display: block;
+    }
+
+    .home_bubble {
+    display: none;
+    position: absolute;
+    width: 8vw;
+    left: 80.2%;
+    bottom: 43.3%;
+    }
+    .home_hov:hover .home_bubble {
+    display: block;
+    }
+
+    .nerd_bubble {
+    display: none;
+    position: absolute;
+    width: 8vw;
+    left: 90%;
+    bottom: 49%;
+    }
+    .nerd_hov:hover .nerd_bubble {
+    display: block;
+    }
+
+
+    .rock_bubble {
+    display: none;
+    position: absolute;
+    width: 8vw;
+    left: 8.8%;
+    bottom: 65.5%;
+    }
+    .rock_hov:hover .rock_bubble {
+    display: block;
+    }
+
+    .prof_bubble {
+    display: none;
+    position: absolute;
+    width: 8vw;
+    left: 38.7%;
+    bottom: 50%;
+    }
+    .prof_hov:hover .prof_bubble {
+    display: block;
+    }
+
+    .cat_bubble {
+    display: none;
+    position: absolute;
+    width: 8vw;
+    left: 16%;
+    bottom: 83%; 
+    }
+    .cat_hov:hover .cat_bubble {
+    display: block;
+    }
+  
+    
+  </style>
+</head>
+<body>
+ 
+
+  <div class="main_background">
+    <img class="back" src="images/scroll_background.png">
+  </div>
+
+  <div class="main_etc">
+    <img src="images/tree.png" class="tree1"/>
+    <img src="images/tree.png" class="tree2"/>
+    <img src="images/tree.png" class="tree3"/>
+    <img src="images/bench.png" class="bench"/>
+    <img src="images/car_r.png" class="car_r"/>
+    <img src="images/car_g.png" class="car_g"/>
+
+    <div class="cat_hov">
+      <img src="images/cat.gif" class="cat"/>
+      <img class="cat_bubble" src="images/cat_bubble.png">
+  </div>
+</div>
+
+<div class="character">
+  <img src="images/user.png" class="user"/>
+
+
+<div class="fresh_hov">
+    <img src="https://i.postimg.cc/w3zfqtPt/new.gif" class="freshman"/>
+    <img class="fresh_bubble" src="images/fresh_bubble.png">
+</div>
+
+<div class="couple_hov">
+    <img src="https://i.postimg.cc/S26gLqXN/couple.gif" class="couple"/>
+    <img class="couple_bubble" src="images/couple_bubble.png">
+</div>
+
+<div class="home_hov">
+    <img src="https://i.postimg.cc/QH40JfM5/outsider.gif" class="homeless"/>
+    <img class="home_bubble" src="images/homeless_bubble.png">
+</div>
+
+<div class="nerd_hov">
+    <img src="https://i.postimg.cc/m1T88qM3/good.gif" class="nerd"/>
+    <img class="nerd_bubble" src="images/nerd_bubble.png">
+</div>
+
+<div class="rock_hov">
+    <img src="images/rocker.gif" class="rocker"/>
+    <img class="rock_bubble" src="images/rocker_bubble.png">
+</div>
+
+<div class="prof_hov">
+    <img src="images/prof.gif" class="prof"/>
+    <img class="prof_bubble" src="images/prof_bubble.png">
+</div>
+
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous">
+</script>
+<script>
+
+//클릭 시, 캐릭터 움직임
+$(".prof").click(function(){
+    $(".user").attr('src', 'images/user_back.gif').animate({bottom: "35%"}, 3000, 'linear', function(){
+      $(".user").attr('src', 'images/user_left.gif').animate({left: "45%"}, 1500, 'linear');
+    });
+  
+    setTimeout(() => {
+        window.location.href = './interview_prof.html';
+    }, 5000);
+});
+
+$(".freshman").click(function(){
+    $(".user").attr('src', 'images/user_back.gif').animate({bottom: "28%"}, 3000, 'linear', function(){
+      $(".user").attr('src', 'images/user_right.gif').animate({left: "60.5%"}, 2000, 'linear');
+    });
+  
+    setTimeout(() => {
+        window.location.href = './interview_new.html';
+    }, 5500);
+});
+
+$(".couple").click(function(){
+    $(".user").attr('src', 'images/user_back.gif').animate({bottom: "40%", left: "51.5%"}, 3000, 'linear');
+  
+    setTimeout(() => {
+        window.location.href = './interview_couple.html';
+    }, 3500);
+});
+
+$(".homeless").click(function(){
+    $(".user").attr('src', 'images/user_back.gif').animate({bottom: "25%"}, 2000, 'linear', function(){
+      $(".user").attr('src', 'images/user_right.gif').css('z-index', '5').animate({left: "79%"}, 3000, 'linear');
+    });
+  
+    setTimeout(() => {
+        window.location.href = './interview_outsider.html';
+    }, 5400);
+});
+
+$(".nerd").click(function(){
+    $(".user").attr('src', 'images/user_back.gif').animate({bottom: "36%"}, 2500, 'linear', function(){
+      $(".user").attr('src', 'images/user_right.gif').css('z-index', '1').animate({left: "88%"}, 3000, 'linear');
+    });
+  
+    setTimeout(() => {
+        window.location.href = './interview_good.html';
+    }, 6000);
+});
+
+$(".rocker").click(function(){
+    $(".user").attr('src', 'images/user_back.gif').animate({bottom: "30%"}, 2000, 'linear', function(){
+      $(".user").attr('src', 'images/user_left.gif').animate({left: "11%"}, 3000, 'linear', function(){
+      $(".user").attr('src', 'images/user_back.gif').animate({bottom: "50%"}, 2000, 'linear');
+    });
+  });
+    setTimeout(() => {
+        window.location.href = './interview_rocker.html';
+    }, 7000);
+});
+
+$(".cat").click(function(){
+    $(".user").attr('src', 'images/user_back.gif').animate({bottom: "30%"}, 2000, 'linear', function(){
+      $(".user").attr('src', 'images/user_left.gif').animate({left: "15%"}, 3000, 'linear', function(){
+      $(".user").attr('src', 'images/user_back.gif').animate({bottom: "77%"}, 2000, 'linear', function(){
+      $(".user").attr('src', 'images/user_right.png').animate({left: "15%"}, 500, 'linear');
+    });
+  });
+  });
+    setTimeout(() => {
+        window.location.href = './interview_cat.html';
+    }, 7500);
+});
+
+
+
+
+</script>
+</body>
+</html>

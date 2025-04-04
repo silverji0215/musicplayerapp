@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+  <link href="interviewStyle.css" rel="stylesheet">
+
+</head>
+
+<body>
+  <!--인터뷰배경-->
+  <img class="background" src="images/interview_bg.png">
+
+    <!--뒤로가기-->
+    <a href="./backhome.html"><img class="backey" src="images/left-chevron.png"></a>
+
+  <!--사람-->
+  <div>
+    <!--유저-->
+    <img class="char user" src="images/interview_user.png">
+
+    <!--뮤직 npc-->
+    <img class="char npc rocker" src="images/interview_rock.png">
+  </div>
+
+  <!--말풍선-->
+  <div class="bubble">
+
+    <!--이름창-->
+    <img class="name" src="images/nMC.png">
+
+    <!--대화창-->
+    <div class="chat">
+      <img src="images/chat.png">
+      <div id="text">지금 무슨 노래 듣고 계신가요?</div>
+    </div>
+
+    <!--버튼-->
+    <div class="btn">
+      <!--스킵-->
+      <a href="./musicpage_rocker.html"><img class="skip" src="images/Skip.png"></a>
+      <!--다음대화-->
+      <div class="next">
+        <img class="enter" src="images/enter.gif">
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+  $(function(){
+
+    /*대화 진행 이벤트*/
+
+    /*대화 진행 엔터키 이벤트*/
+    $('html').keypress(function(e){
+
+      console.log(e.key)
+      if(e.key == ' '){
+        $(".enter").trigger('click');
+      }
+
+    })
+
+    /*대화 진행 클릭 이벤트*/
+    $(".enter").click(function(){
+      $("#text").text("인생은 락앤롤★ 제 뿌리인 [Believer]를 듣고있었습니다!! 소리질러~! 훠우!")
+      $(".name").removeAttr('src', 'images/nMC.png')
+      $(".name").attr('src', 'images/nRocker.png')
+
+      $(".enter").click(function(){
+        $("#text").text("예~아!.. 노래 화면 한 번만 보여주실 수 있으실까요?")
+        $(".name").removeAttr('src', 'images/nRocker.png')
+        $(".name").attr('src', 'images/nMC.png')
+
+        $(".enter").click(function(){
+          $("#text").text("당연하죠 락앤롤 베이베!!!")
+          $(".name").removeAttr('src', 'images/nMC.png')
+          $(".name").attr('src', 'images/nRocker.png')
+
+          /*뮤직플레이어로 넘어가도록 a태그로 변경*/
+          $(".enter").remove()
+          $(".next").append('<a href="./musicpage_rocker.html"><img class="enter" src="images/enter.gif"></a>')
+        })
+      })
+
+    });
+
+})
+</script>
+</html>
